@@ -6,6 +6,7 @@ class TodoStore {
   constructor() {
     makeAutoObservable(this, {
       total: computed,
+      unComplete: computed,
       list: observable,
       addItem: action,
       checkCompleted: action,

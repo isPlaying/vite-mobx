@@ -13,7 +13,7 @@ const TodoView = observer(({ todo }) => {
   };
 
   return (
-    <div className="container">
+    <>
       <div>
         <input
           type="text"
@@ -24,7 +24,7 @@ const TodoView = observer(({ todo }) => {
       </div>
       {todo.list.map((item) => {
         return (
-          <div className="todo-item" key={item.id}>
+          <div key={item.id}>
             <input
               type="checkbox"
               checked={item.completed}
@@ -46,7 +46,7 @@ const TodoView = observer(({ todo }) => {
       ) : (
         <div>剩余{todo.unComplete}项任务尚未完成</div>
       )}
-    </div>
+    </>
   );
 });
 
