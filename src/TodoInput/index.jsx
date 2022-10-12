@@ -5,7 +5,6 @@ import './index.less';
 const TodoInput = observer(({ todo }) => {
   const [input, setInput] = useState('');
   const submit = () => {
-    console.log(todo, 'ddd');
     todo.addItem(input);
     setInput('');
   };
