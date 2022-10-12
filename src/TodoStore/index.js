@@ -9,7 +9,8 @@ class TodoStore {
       unComplete: computed,
       list: observable,
       addItem: action,
-      checkCompleted: action,
+      toggleCompleted: action,
+      toggleDel: action,
     });
   }
 
@@ -25,9 +26,14 @@ class TodoStore {
     this.list = [...this.list, { id: nanoid(), value, completed: false }];
   }
 
-  checkToggle(id) {
+  toggleCompleted(id) {
     const current = this.list.filter((item) => item.id === id)[0];
     current.completed = !current.completed;
+  }
+
+  toggleDel(id) {
+    const idx = this.list.findIndex((item) => item.id === id);
+    this.list.splice(idx, 1);
   }
 }
 
