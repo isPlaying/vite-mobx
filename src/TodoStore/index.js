@@ -1,4 +1,10 @@
-import { action, computed, makeAutoObservable, observable } from 'mobx';
+import {
+  action,
+  computed,
+  makeAutoObservable,
+  observable,
+  autorun,
+} from 'mobx';
 import { nanoid } from 'nanoid';
 
 class TodoStore {
@@ -38,5 +44,9 @@ class TodoStore {
 }
 
 const todoStore = new TodoStore();
+
+autorun(() => {
+  console.log('todoStore total:', todoStore.total);
+});
 
 export default todoStore;
